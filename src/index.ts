@@ -3,10 +3,12 @@ import * as dotenv from 'dotenv';
 import * as cors from 'cors';
 import * as session from 'express-session';
 
+import VoteRouter from './vote/interface';
+
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;w
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +21,8 @@ app.use(session({
 app.get('/', (req: express.Request, res: express.Response) => {
   res.send('Zennvote API server');
 });
+
+app.use('/vote', VoteRouter);
 
 app.listen(3000, () => {
   console.log(`Server started on port ${port}`);
