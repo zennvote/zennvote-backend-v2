@@ -15,9 +15,9 @@ const postVoteController = async (req: Request, res: Response) => {
 
   const vote: Vote = req.body;
   try {
-    const action = async () => await createVote(vote);
+    const action = await createVote(vote);
 
-    res.end({ succeed: true, result: action });
+    res.json({ succeed: true, result: action });
   } catch (error) {
     handleError(error, req, res);
   }
