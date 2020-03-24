@@ -6,7 +6,7 @@ const getTransport = () => (process.env.NODE_ENV || 'development') !== 'developm
     format: winston.format.combine(winston.format.cli(), winston.format.splat()),
   });
 
-const logger = winston.createLogger({
+const Log = winston.createLogger({
   level: process.env.LOG_LEVEL || 'debug',
   levels: winston.config.npm.levels,
   format: winston.format.combine(
@@ -20,4 +20,4 @@ const logger = winston.createLogger({
   ],
 });
 
-export default logger;
+export default Log;

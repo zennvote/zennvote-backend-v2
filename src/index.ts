@@ -5,6 +5,7 @@ import * as session from 'express-session';
 import * as mongoose from 'mongoose';
 
 import Log from './logger';
+import loader from './loader';
 
 import VoteRouter from './vote/interface';
 
@@ -13,24 +14,9 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
-app.use(express.json());
-app.use(session({
-  secret: process.env.SECRET as string,
-  resave: false,
-  saveUninitialized: true,
-}));
-
-app.get('/', (req: express.Request, res: express.Response) => {
-  res.send('Zennvote API server');
-});
+loader({ expressApp: app });
 
 app.use('/vote', VoteRouter);
-
-const mongoOption = { useNewUrlParser: true, useUnifiedTopology: true };
-mongoose.connect(process.env.MONGO_URI as string, mongoOption)
-  .then(() => Log.info('Server connected to mongodb'))
-  .catch((err: Error) => console.error(err));
 
 app.listen(3000, () => {
   Log.info(`Server started on port ${port}`);
