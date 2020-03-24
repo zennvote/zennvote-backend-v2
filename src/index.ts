@@ -4,6 +4,8 @@ import * as cors from 'cors';
 import * as session from 'express-session';
 import * as mongoose from 'mongoose';
 
+import Log from './logger';
+
 import VoteRouter from './vote/interface';
 
 dotenv.config();
@@ -25,10 +27,11 @@ app.get('/', (req: express.Request, res: express.Response) => {
 
 app.use('/vote', VoteRouter);
 
-mongoose.connect(process.env.MONGO_URI as string, { useNewUrlParser: true })
-  .then(() => console.log('Server connected to mongodb'))
+const mongoOption = { useNewUrlParser: true, useUnifiedTopology: true };
+mongoose.connect(process.env.MONGO_URI as string, mongoOption)
+  .then(() => Log.info('Server connected to mongodb'))
   .catch((err: Error) => console.error(err));
 
 app.listen(3000, () => {
-  console.log(`Server started on port ${port}`);
+  Log.info(`Server started on port ${port}`);
 });

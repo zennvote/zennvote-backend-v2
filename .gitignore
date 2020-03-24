@@ -111,3 +111,5 @@ dist/
 ### Google sheet tokens ###
 credentials.json
 token.json
+
+log/
