@@ -72,5 +72,3 @@ const formatEpisodeData = (cell: CellData, episode: number, index: number) => {
     song: values[1],
   } as Episode;
 };
-
-getSeasonData(10);

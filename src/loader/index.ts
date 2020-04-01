@@ -4,6 +4,7 @@ import Log from '../logger';
 import mongoose from './mongoose';
 import express from './express';
 import expressRoute from './express-route';
+import mysql from './mysql';
 
 type loaderArgs = {
   expressApp: Express,
@@ -26,6 +27,9 @@ export default async ({ expressApp }: loaderArgs) => {
 
   await mongoose();
   Log.info('Mongoose initialized');
+
+  await mysql();
+  Log.info('Mysql initialized');
 
   await express(expressApp);
   Log.info('Express app initialized');
