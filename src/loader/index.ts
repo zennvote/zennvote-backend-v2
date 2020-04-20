@@ -4,7 +4,9 @@ import Log from '../logger';
 import mongoose from './mongoose';
 import express from './express';
 import expressRoute from './express-route';
-import mysql from './mysql';
+import sequelize from './sequelize';
+import sequelizeMigrate from './sequelize-migrate';
+import { MigrateSeason } from '../search/infrastructure/EpisodeDTO';
 
 type loaderArgs = {
   expressApp: Express,
@@ -28,12 +30,17 @@ export default async ({ expressApp }: loaderArgs) => {
   await mongoose();
   Log.info('Mongoose initialized');
 
-  await mysql();
-  Log.info('Mysql initialized');
+  await sequelize();
+  Log.info('Sequelize initialized');
+
+  await sequelizeMigrate();
+  Log.info('Sequelize migration initialized');
 
   await express(expressApp);
   Log.info('Express app initialized');
 
   await expressRoute(expressApp);
   Log.info('Express route initialized');
+
+  MigrateSeason(6, 7, 8, 9);
 };
