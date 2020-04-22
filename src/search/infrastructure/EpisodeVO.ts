@@ -1,6 +1,6 @@
 import * as Sequelize from 'sequelize';
 import Log from '../../logger';
-import Episode from '../domain/episode';
+import Episode from '../entity/episode';
 
 export class EpisodeVO extends Sequelize.Model<EpisodeVO> {
   song: string;

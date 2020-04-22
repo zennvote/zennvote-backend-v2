@@ -1,5 +1,5 @@
 import { getSeasonData } from './sheet';
-import Episode from '../domain/episode';
+import Episode from '../entity/episode';
 import { EpisodeVO } from './EpisodeVO';
 import Log from '../../logger';
 
