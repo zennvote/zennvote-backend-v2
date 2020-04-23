@@ -1,8 +1,6 @@
 import * as Sequelize from 'sequelize';
-import Log from '../../logger';
-import Episode from '../domain/episode';
 
-export class EpisodeVO extends Sequelize.Model<EpisodeVO> {
+export class EpisodeDBModel extends Sequelize.Model<EpisodeDBModel> {
   song: string;
   producer: string;
   episode: number;
@@ -12,7 +10,7 @@ export class EpisodeVO extends Sequelize.Model<EpisodeVO> {
 }
 
 export const initEpisodeVO = () => {
-  EpisodeVO.init(
+  EpisodeDBModel.init(
     {
       episode: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true },
       idx: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true },
@@ -23,7 +21,7 @@ export const initEpisodeVO = () => {
     },
     {
       sequelize: (global as any).sequelize,
-      modelName: 'EpisodeVO',
+      modelName: 'EpisodeDBModel',
       tableName: 'Episode',
     },
   );

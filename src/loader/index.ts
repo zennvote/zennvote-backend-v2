@@ -6,7 +6,7 @@ import express from './express';
 import expressRoute from './express-route';
 import sequelize from './sequelize';
 import sequelizeMigrate from './sequelize-migrate';
-import { MigrateSeason } from '../search/infrastructure/EpisodeDTO';
+import { getEpisode } from '../search/infrastructure/EpisodeDB';
 
 type loaderArgs = {
   expressApp: Express,
@@ -41,6 +41,4 @@ export default async ({ expressApp }: loaderArgs) => {
 
   await expressRoute(expressApp);
   Log.info('Express route initialized');
-
-  MigrateSeason(6, 7, 8, 9);
 };
