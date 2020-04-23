@@ -1,4 +1,4 @@
-import { initEpisodeVO } from '../search/infrastructure/EpisodeVO';
+import { initEpisodeVO } from '../search/infrastructure/EpisodeDB.model';
 
 export default async () => {
   initEpisodeVO();
