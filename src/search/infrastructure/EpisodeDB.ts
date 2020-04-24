@@ -1,4 +1,4 @@
-import Episode from '../entity/episode';
+import Episode from '../entity/Episode';
 
 import { EpisodeDBModel } from './EpisodeDB.model';
 
