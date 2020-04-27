@@ -14,5 +14,5 @@ hooks:
     - location: clear.sh
       timeout: 180
   AfterInstall:
-    - location: deploy.sh
+    - location: execute-deploy.sh
       timeout: 180
