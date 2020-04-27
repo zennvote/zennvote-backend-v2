@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd ~/zennvote-backend/docker-image
-sudo bash ./deploy.sh
+./deploy.sh > /dev/null 2> /dev/null < /dev/null &
