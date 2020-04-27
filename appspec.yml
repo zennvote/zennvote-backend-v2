@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/zennvote-backend/deploy/zennvote-backend-v2/
+    destination: ~/zennvote-backend/deploy/zennvote-backend-v2/
 hooks:
   AfterInstall:
     - location: deploy.sh
