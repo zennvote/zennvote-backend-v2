@@ -3,6 +3,12 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/zennvote-backend/deploy/zennvote-backend-v2/
+permissions:
+  - object: /home/ubuntu/zennvote-backend/deploy/zennvote-backend-v2
+    pattern: "*.sh"
+    mode: 777
+    type:
+      -file
 hooks:
   BeforeInstall:
     - location: clear.sh
