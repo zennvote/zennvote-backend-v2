@@ -10,6 +10,9 @@ permissions:
     type:
       - file
 hooks:
+  BeforeInstall:
+    - location: clear.sh
+      timeout: 180
   AfterInstall:
     - location: execute-deploy.sh
       timeout: 180
