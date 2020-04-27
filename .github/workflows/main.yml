@@ -31,6 +31,6 @@ jobs:
         run: |
           aws deploy create-deployment \
             --region ap-northeast-2 \
-            --application-name zennvote-backend-deploy-service
-            --deployment-group-name zennvote-backend-deploy-group
+            --application-name zennvote-backend-deploy-service \
+            --deployment-group-name zennvote-backend-deploy-group \
             --github-location repository="zennvote/zennvote-backend-v2",commitId="${{ github.sha }}"
