@@ -21,6 +21,6 @@ export default async (app: express.Express) => {
   });
 
   app.get('/', (_req: express.Request, res: express.Response) => {
-    res.end('Zennvote API server');
+    res.end(`Zennvote API server: ${process.env.npm_package_version}`);
   });
 };
