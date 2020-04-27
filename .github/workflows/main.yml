@@ -23,16 +23,6 @@ jobs:
       
       - name: Install Dependencies
         run: npm install
-
-      - name: Upload build file to s3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws s3 cp \
-            --recursive \
-            --region ap-northeast-2 \
-            . s3://zennvote-be-season10
       
       - name: Deploy file
         env:
