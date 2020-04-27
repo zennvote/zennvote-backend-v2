@@ -8,7 +8,7 @@ permissions:
     pattern: "*.sh"
     mode: 777
     type:
-      -file
+      - file
 hooks:
   BeforeInstall:
     - location: clear.sh
