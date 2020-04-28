@@ -5,8 +5,13 @@ import { GetEpisode, GetEpisodeError } from '../../application/GetEpisode';
 import Log from '../../../logger';
 
 export default async (request: Request, response: Response) => {
-  const { episode, index } = request.query;
+  const validation = validationResult(request);
+  if (!validation.isEmpty()) {
+    response.status(400).json({ succeed: false, errors: validation.array() });
+    return;
+  }
 
+  const { episode, index } = request.query;
   try {
     const episodeData = await GetEpisode(episode, index);
 
