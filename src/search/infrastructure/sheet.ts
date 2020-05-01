@@ -1,6 +1,6 @@
 import { google, sheets_v4 } from 'googleapis';
 
-import { getAuthorizedClient } from './sheet.auth';
+import { getAuthorizedClient } from '../../util/sheet.auth';
 import Episode from '../entity/Episode';
 
 type GetSheetBody = sheets_v4.Params$Resource$Spreadsheets$Get;
