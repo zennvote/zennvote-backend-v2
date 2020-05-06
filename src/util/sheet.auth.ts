@@ -1,5 +1,5 @@
 import { google } from 'googleapis';
-import { readFileAsync } from '../../util/file';
+import { readFileAsync } from './file';
 
 import fs = require('fs');
 import readline = require('readline');
