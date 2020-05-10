@@ -39,7 +39,7 @@ export const getSeasonData = async (season: number) => {
     .map(episode => ({ ...episode, episode: episode.episode + (season - 1) * 10 }))
     .map(episode => episode as Episode);
 
-  return flatten;
+  return season === 10 ? flatten : flatten.map(episode => ({ ...episode, votable: false }));
 };
 
 const formatDayData = (episodes: RowData, index: number) => {
