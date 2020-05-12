@@ -31,7 +31,7 @@ const validator = [
 
   ...episodeValidator('pitch', 5),
   ...episodeValidator('voice', 5),
-  ...episodeValidator('funny', 2),
+  ...episodeValidator('funny', 3),
   ...episodeValidator('content', 3),
   ...episodeValidator('original', 3),
   ...episodeValidator('sleep', 3),
