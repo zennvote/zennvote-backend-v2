@@ -36,8 +36,8 @@ const validator = [
   ...episodeValidator('original', 3),
   ...episodeValidator('sleep', 3),
 
-  ...selectionValidator('unit', 3, 2),
-  ...selectionValidator('new', 3, 3),
+  ...selectionValidator('unit', 3, 3),
+  ...selectionValidator('new', 3, 2),
   ...selectionValidator('grow', 3, 0),
   ...selectionValidator('master', 3),
 
