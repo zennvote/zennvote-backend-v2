@@ -31,13 +31,13 @@ const validator = [
 
   ...episodeValidator('pitch', 5),
   ...episodeValidator('voice', 5),
-  ...episodeValidator('funny', 2),
+  ...episodeValidator('funny', 3),
   ...episodeValidator('content', 3),
   ...episodeValidator('original', 3),
   ...episodeValidator('sleep', 3),
 
-  ...selectionValidator('unit', 3, 2),
-  ...selectionValidator('new', 3, 3),
+  ...selectionValidator('unit', 3, 3),
+  ...selectionValidator('new', 3, 2),
   ...selectionValidator('grow', 3, 0),
   ...selectionValidator('master', 3),
 
