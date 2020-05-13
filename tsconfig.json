@@ -1,12 +1,23 @@
+  
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2019",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strictNullChecks": true,
     "moduleResolution": "node",
-    "outDir": "dist",
-    "strictNullChecks": true
+    "target": "es2019",
+    "allowJs": false,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@test/*": [
+        "test/*"
+      ]
+    }
   },
   "include": [
-    "src/**/*"
+    "./src/", "test"
   ]
 }

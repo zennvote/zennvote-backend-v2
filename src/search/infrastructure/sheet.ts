@@ -1,7 +1,7 @@
 import { google, sheets_v4 } from 'googleapis';
 
-import { getAuthorizedClient } from './sheet.auth';
-import Episode from '../entity/episode';
+import { getAuthorizedClient } from '../../util/sheet.auth';
+import Episode from '../entity/Episode';
 
 type GetSheetBody = sheets_v4.Params$Resource$Spreadsheets$Get;
 type Sheet = sheets_v4.Schema$Sheet;
@@ -39,7 +39,7 @@ export const getSeasonData = async (season: number) => {
     .map(episode => ({ ...episode, episode: episode.episode + (season - 1) * 10 }))
     .map(episode => episode as Episode);
 
-  return flatten;
+  return season === 10 ? flatten : flatten.map(episode => ({ ...episode, votable: false }));
 };
 
 const formatDayData = (episodes: RowData, index: number) => {
