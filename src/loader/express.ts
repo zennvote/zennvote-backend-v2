@@ -1,7 +1,6 @@
 import * as express from 'express';
 import * as cors from 'cors';
 import * as session from 'express-session';
-import VoteRouter from '../vote/interface';
 
 import Log from '../logger';
 
