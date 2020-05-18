@@ -1,5 +1,7 @@
 import { Document, Schema, model } from 'mongoose';
+
 import VoteData from '../domain/VoteData';
+import Vote from '../domain/Vote';
 
 export interface VoteDocument extends Document {
   email: string;
@@ -42,3 +44,7 @@ const voteSchema = new Schema({
 });
 
 export const VoteModel = model<VoteDocument>('Vote', voteSchema);
+
+export const formatVoteDocument = ({ email, data }: VoteDocument) => {
+  return { email, data } as Vote;
+};

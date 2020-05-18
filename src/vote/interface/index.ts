@@ -2,9 +2,9 @@ import * as express from 'express';
 
 import PostVote from './PostVote';
 import PostVoteValidator from './PostVote/validator';
+import GetVote from './GetVote';
 
-const route = express.Router();
+export const VoteRouter = express.Router();
 
-route.post('/', PostVoteValidator, PostVote);
-
-export default route;
+VoteRouter.post('/', PostVoteValidator, PostVote);
+VoteRouter.get('/', GetVote);
