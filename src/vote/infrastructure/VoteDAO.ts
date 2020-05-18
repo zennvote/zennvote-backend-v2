@@ -1,4 +1,4 @@
-import { VoteModel } from './PlaysetModel';
+import { VoteModel, formatVoteDocument } from './PlaysetModel';
 import Vote from '../domain/Vote';
 import Log from '../../logger';
 
@@ -13,4 +13,11 @@ export const createVote = async (form: Vote) => {
   Log.info(`[INFRA] createVote successs: ${result.id}`);
 
   return result;
+};
+
+export const getVotes = async () => {
+  const documents = await VoteModel.find({});
+  const votes = documents.map(formatVoteDocument);
+
+  return votes;
 };
