@@ -1,6 +1,6 @@
 import * as express from 'express';
 
-import VoteRouter from '@src/vote/interface';
+import { VoteRouter } from '@src/vote/interface';
 import SearchRouter from '@src/search/interface';
 import ChoicesRouter from '@src/choices/interface';
 import QuizRouter from '@src/quiz/interface';
